@@ -2,16 +2,23 @@ import React from "react";
 import "./Header.css";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartOutlined from "@material-ui/icons/ShoppingCartOutlined";
+import {Link} from 'react-router-dom';
+import { useStateValue } from "./StateProvider";
+
 
 function Header() {
+
+  const [{cart},dispatch]=useStateValue();
+  console.log(cart?.length);
+
  
   return (
     <div className="header">
-     
-        <img
+     <Link to="/"><img
           className="header__logo"
           src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
-        />
+        /> </Link>
+        
      
 
       <div className="header__search">
@@ -37,13 +44,18 @@ function Header() {
           <span className="header__optionLineTwo">Prime</span>
         </div>
 
-       
+        <Link to ="/checkout">
           <div className="header__optionBasket">
+
+          
             <ShoppingCartOutlined/>
-            <span className="header__optionLineTwo header__basketCount">{0}
-              
+            <span className="header__optionLineTwo header__basketCount"> {cart?.length}
             </span>
+           
+            
           </div>
+          </Link>
+         
        
       </div>
     </div>
