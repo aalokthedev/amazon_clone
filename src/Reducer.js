@@ -1,14 +1,20 @@
+
+
+
 export const initialState={
 cart:[],
 
 };
 
 
+
+
+
     export const getCartTotal = (cart) => {
 
         return 100;
 
-    }
+    } 
     
 
 

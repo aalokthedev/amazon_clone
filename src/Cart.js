@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./Cart.css";
 import Subtotal from "./Subtotal";
 
 
+
+
+
+
 function Cart() {
+
+function alert(){
+
+    fetch('http://localhost:8080/products')
+  .then(response => response.json())
+  .then(data =>console.log((data)));
+}
+
+
+
     return (
         <div className="checkout">
             <div className="checkout__left">
@@ -15,15 +29,13 @@ function Cart() {
                 </div>
                 
                 <div className="checkout__items">
-
-                    
-
-
+                   
                 </div>
                 
             </div>
 
             <div className="checkout__right">
+                {alert()}
                 <Subtotal/>
             </div>
             
